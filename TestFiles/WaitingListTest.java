@@ -8,20 +8,20 @@ class WaitingListTest {
     void addPassengerToWaitList() {
         PassengersDetailsApp passengersDetailsApp = new PassengersDetailsApp();
         WaitingList waitingList = new WaitingList();
+        SeatReservationApp seatReservationApp = new SeatReservationApp();
         passengersDetailsApp.addPassengerDetails("Chibuzor", "Slim", "NJ");
         waitingList.addPassengerToWaitList(passengersDetailsApp.getPassengerDetails());
-        assertEquals("{Destination=NJ, First Name=CHIBUZOR, Last Name=SLIM}", waitingList.getNextPassengerOnWaitList());
+        assertFalse(waitingList.checkIfWaitListIsEmpty());
     }
 
     @Test
     void getNextPassengerOnWaitList() {
         PassengersDetailsApp passengersDetailsApp = new PassengersDetailsApp();
         WaitingList waitingList = new WaitingList();
-        passengersDetailsApp.addPassengerDetails("Seyi", "fast", "CA");
+        passengersDetailsApp.addPassengerDetails("Seyi", "Fast", "CA");
         waitingList.addPassengerToWaitList(passengersDetailsApp.getPassengerDetails());
-        passengersDetailsApp.addPassengerDetails("Chibuzor", "Slim", "NJ");
-        waitingList.addPassengerToWaitList(passengersDetailsApp.getPassengerDetails());
-        assertEquals("{Destination=CA, First Name=SEYI, Last Name=FAST}", waitingList.getNextPassengerOnWaitList());
+        waitingList.getNextPassengerOnWaitList();
+        assertTrue(waitingList.checkIfWaitListIsEmpty());
     }
 
     @Test

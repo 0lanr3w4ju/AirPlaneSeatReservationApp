@@ -40,7 +40,7 @@ public class SeatReservationApp {
                 if (seats[row][column] != null) { // and if specified seat is allocated to a Passenger Details
                     System.out.printf("%s has been successfully deleted%n", seats[row][column]);
                     seats[row][column] = null; // Delete it
-                } else System.out.println("Sorry! no passenger details Here.. ");
+                } else System.out.println("Sorry! no passenger details Here");
             }
         }
     }
@@ -67,6 +67,16 @@ public class SeatReservationApp {
             }
         }
         System.out.printf("/NEWS/: We currently have (%d) available seat(s) at (80)percent discount Per Seat Right-Now!%n", count);
+    }
+
+    public void listPassengersWithReservation() {
+        for (String[] seat : seats) {
+            for (String details : seat) {
+                if (details != null) {
+                    System.out.println(details);
+                }
+            }
+        }
     }
 
 }
