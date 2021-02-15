@@ -1,8 +1,9 @@
 import java.util.HashMap;
+import java.util.Random;
 
 public class PassengersDetailsApp {
 
-    private HashMap<String, String> passenger; // hashmap declaration
+    private HashMap<Object, Object> passenger; // hashmap declaration
 
     public void addPassengerDetails(String firstName, String lastName, String destination) {
         passenger = new HashMap<>();
@@ -10,14 +11,25 @@ public class PassengersDetailsApp {
         passenger.put("First Name", firstName.toUpperCase());
         passenger.put("Last Name", lastName.toUpperCase());
         passenger.put("Destination", destination.toUpperCase());
+        passenger.put("Identity", generateRandomToken());
     }
 
-    public String getPassengerDetailWithKey(String key) { // get passenger details with key
+    private int generateRandomToken() {
+        Random token = new Random();
+        int upperbound = 1001;
+        return token.nextInt(upperbound);
+    }
+
+    Object getPassengerDetailWithKey(String key) { // get passenger details with key
         return passenger.get(key); //////RF///-////0////////////////////
     }
-
+    
     public String getPassengerDetails() {
-        return String.valueOf(passenger);
+         return
+        "[Identity: "+getPassengerDetailWithKey("Identity")+"], " +
+        "[First Name: "+getPassengerDetailWithKey("First Name")+"], " +
+        "[Last Name: "+getPassengerDetailWithKey("Last Name")+"], " +
+        "[Destination: "+getPassengerDetailWithKey("Destination")+"],\n";
     }
 
 }

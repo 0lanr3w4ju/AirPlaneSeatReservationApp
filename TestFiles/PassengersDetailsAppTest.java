@@ -15,7 +15,7 @@ class PassengersDetailsAppTest {
     void getPassengerDetailWithKey() {
         PassengersDetailsApp passengersDetailsApp = new PassengersDetailsApp();
         passengersDetailsApp.addPassengerDetails("Pit", "Arrow", "Ac");
-        assertEquals("Pit".toUpperCase(), passengersDetailsApp.getPassengerDetailWithKey("First Name"));
+        assertEquals("Pit".toUpperCase(), passengersDetailsApp.getPassengerDetailWithKey("First Name")); //uncomment to make this Test pass
     }
 
     @Test
